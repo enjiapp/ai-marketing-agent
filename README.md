@@ -24,7 +24,7 @@ Enji is an all-in-one marketing platform designed for small businesses and solop
 2. Go to Settings → Apps & Connectors
 3. Scroll to the bottom and click on Advanced Settings and turn on Developer Mode (if it’s not already enabled)
 4. Click Back and then where it says Enabled Apps and Connectors, click Create App
-5. Add the Name of Enji and for the MCP Server URL add https://mcp.enji.co/mcp/messages
+5. Add the Name of Enji and for the MCP Server URL add `https://mcp.enji.co/mcp/messages`
 6. Optionally add Enji's logo as the Icon
 7. Set Authentication to No Auth
 8. Check the box that you understand click Create
@@ -40,7 +40,7 @@ Enji is an all-in-one marketing platform designed for small businesses and solop
 
 **Other AI Clients:**
 1. Open your AI client settings or connectors (might need to search for their instruction on where to add MCP connectors)
-2. Connect to Enji using the server URL: https://mcp.enji.co/mcp/message or if it wants a json endpoint, connect to this url: https://mcp.enji.co/mcp/manifest
+2. Connect to Enji using the server URL: `https://mcp.enji.co/mcp/message` or if it wants the manifest endpoint, connect to this url: `https://mcp.enji.co/mcp/manifest`
 3. If the client asks for Authentication type, choose None
 4. Let the AI client chat session know you want to use Enji to do your work
 
