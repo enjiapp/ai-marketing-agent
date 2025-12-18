@@ -1,6 +1,6 @@
 ---
 name: Question
-about: Ask a question about using the Enji connector
+about: Ask a question about using the Enji AI Marketing Agent connector
 title: '[QUESTION] '
 labels: question
 assignees: ''

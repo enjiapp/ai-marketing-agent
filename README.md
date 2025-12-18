@@ -96,10 +96,10 @@ See more examples in our [examples directory](./examples/).
 
 ## 📚 Documentation
 
-- **[Full Documentation](https://www.enji.co/ai-marketing-agent)** - Complete guide to using Enji with Claude
-- **[Tool Reference](./docs/tools.md)** - Detailed documentation for each tool
-- **[Examples](./examples/)** - Sample prompts and workflows
-- **[FAQs](./docs/faqs.md)** - Common questions and troubleshooting
+* **[Enji AI Marketing Agent Documentation](https://www.enji.co/ai-marketing-agent)** - Complete guide on Enji website
+* **[Tool Reference](https://github.com/enjiapp/ai-marketing-agent/blob/main/docs/tools.md)** - Detailed docs
+* **[Examples](https://github.com/enjiapp/ai-marketing-agent/blob/main/examples/prompts.md)** - Sample prompts
+* **[FAQ](https://github.com/enjiapp/ai-marketing-agent/blob/main/docs/faqs.md)** - Common questions and troubleshooting
 
 ## 🎯 Who Should Use This?
 
@@ -112,17 +112,28 @@ This connector is perfect for:
 
 ## 🔒 Security & Privacy
 
-- Enji only accesses data you explicitly provite
+- Enji only accesses data you explicitly provide
 - All API calls are made server-to-server over HTTPS
+- **Privacy Policy:** [enji.co/privacy-policy](https://www.enji.co/privacy-policy)
+- **Terms of Service:** [enji.co/terms-of-service](https://www.enji.co/terms-of-service)
 
 ## 🆘 Support
 
 Having issues? Need help?
 
-- **Documentation:** [enji.co/ai-marketing-agent](https://www.enji.co/ai-marketing-agent)
 - **Help Center:** [help.enji.co](https://help.enji.co)
 - **Report Issues:** [Open a GitHub issue](https://github.com/enjiapp/ai-marketing-agent/issues)
 - **Email Support:** contact@enji.co
+
+## 🔧 Technical Details
+
+The Enji Marketing Agent MCP server supports multiple transport protocols:
+
+- **SSE (Server-Sent Events)** - Send GET request with `Accept: text/event-stream`
+- **JSON-RPC over HTTP POST** - For clients that prefer request/response
+- **Endpoints:** `https://mcp.enji.co/mcp/messages` or `https://mcp.enji.co/mcp/sse`
+
+The server automatically detects which protocol to use based on the request headers.
 
 ## 🌟 About Enji
 
