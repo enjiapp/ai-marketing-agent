@@ -1,76 +1,49 @@
 # Example Prompts & Workflows
 
-Real-world examples of how to use Enji's AI Marketing Agent connector with your AI client.
+Real-world examples of using Enji's MCP server with your AI client. The first section needs no account. The rest use the signed-in server at `https://mcp.enji.co/mcp`.
 
-## Quick Start Examples
+## Without an account
 
-### Getting Marketing Advice
+### Getting marketing advice
 
-**Simple Question:**
 ```
 "I'm a wedding planner. Should I try email marketing?"
 ```
 
-Your AI client uses `answer_question` to provide expert guidance based on Enji's wedding industry content.
+Your AI client uses `search_enji_knowledge` to answer from Enji's marketing library and links the articles it drew on.
 
 ---
 
-**Industry-Specific Strategy:**
 ```
-"What are the best marketing channels for a local coffee shop?"
-```
-
-Your AI client searches Enji's knowledge base for local business and food service marketing strategies.
-
----
-
-## Content Creation Workflows
-
-### Blog Content Planning
-
-**Generate Ideas:**
-```
-"I run a sustainable fashion brand called EcoThreads. We sell organic cotton clothing 
-to environmentally conscious millennials. Generate 10 blog topic ideas for me."
-```
-
-Your AI client uses `blog_ideas` to create topics organized by content pillars (education, inspiration, community, promotion, engagement, entertainment).
-
----
-
-**Monthly Content Calendar:**
-```
-"Create a month's worth of blog topics for my house cleaning service. I want a mix of 
-how-to guides, tips, and seasonal content."
-```
-
-Your AI client generates ideas and can organize them into a content calendar structure.
-
----
-
-### Social Media Content
-
-**Platform-Specific Ideas:**
-```
-"I'm a personal trainer struggling with Instagram content. Generate 10 post ideas 
-that will engage my audience of busy professionals who want to get fit."
+"What are the best marketing channels for a wedding venue?"
 ```
 
 ---
 
-**Consistent Posting Strategy:**
+### Blog content ideas
+
 ```
-"Help me create a week's worth of social media posts for my handmade jewelry business. 
-I need ideas for Instagram, Facebook, and Pinterest."
+"I'm a wedding photographer in Charleston called Willow & Co. I shoot relaxed,
+documentary-style weddings for couples who want candid photos over posed ones.
+Generate 10 blog topic ideas for me."
+```
+
+Your AI client uses `blog_ideas` to create topics organized by content pillar (education, inspiration, community, promotion, engagement, entertainment).
+
+---
+
+### Social media content ideas
+
+```
+"I'm a wedding planner struggling with Instagram content. Generate 10 post ideas
+that will engage couples who just got engaged and are planning for next year."
 ```
 
 Your AI client uses `social_media_ideas` and can organize them by platform and day.
 
 ---
 
-## Customer Understanding
-
-### Create Detailed Personas
+### Customer persona
 
 ```
 "Help me create a customer persona for my yoga studio.
@@ -82,85 +55,168 @@ Age range: 30-50
 Gender: Mostly women but some men
 
 Here's a review from a happy customer:
-'Serenity Yoga has completely changed my life. As a busy executive, I was burning out. 
-The instructors here understand that we're beginners and make everyone feel welcome. 
+'Serenity Yoga has completely changed my life. As a busy executive, I was burning out.
+The instructors here understand that we're beginners and make everyone feel welcome.
 Now I actually look forward to my evening classes!'"
 ```
 
-Your AI client uses `customer_persona` to create a detailed profile with demographics, struggles, and solutions.
+Your AI client uses `customer_persona` to create a profile with demographics, struggles, and solutions.
 
 ---
 
-### Persona for Product Development
+### Brand voice
 
 ```
-"I'm launching a meal prep service for busy parents. Create a customer persona 
-to help me understand their needs and pain points."
+"Analyze this copy from my website and describe my brand voice:
+
+'We're not the photographers who line everyone up and count to three. We hang back,
+we notice the small stuff, and we let your day happen. Your grandmother laughing
+with the flower girl, your dad losing it during the first look. That's the stuff
+you'll frame. Posing is optional. Being yourselves is the whole point.'"
+```
+
+Your AI client uses `brand_voice` to describe tone, style, and voice characteristics.
+
+---
+
+## Signed in: your week
+
+### What to work on
+
+```
+"What marketing tasks do I have today?"
+```
+
+Your AI client uses `get_todays_tasks` and shows what is due, carried over, and coming this week.
+
+---
+
+```
+"Show me everything on my calendar for next week and tell me what is still missing a draft."
+```
+
+Uses `list_tasks` and `list_posts`, then compares.
+
+---
+
+### Managing tasks
+
+```
+"Mark the newsletter task done and add a task to update the website banner by Friday,
+assigned to me."
+```
+
+Uses `complete_task` and `create_task`.
+
+---
+
+```
+"Set up a repeating task every Monday to review last week's analytics."
+```
+
+Uses `create_task` with a repeat rule.
+
+---
+
+## Signed in: content that fits your business
+
+### Start from your marketing context
+
+```
+"Read my marketing context, then suggest three posts for this week that support
+my current goals."
+```
+
+Your AI client uses `get_marketing_context` for your plan, customers, brand voice, and campaigns, then suggests posts that fit.
+
+---
+
+### Plan a week of posts
+
+```
+"Plan a week of Instagram and Pinterest posts around our 2027 booking season. Put them on the
+calendar as planned posts with a topic and notes, but don't write the captions yet."
+```
+
+Uses `list_social_accounts` and `plan_post` for each day.
+
+---
+
+### Draft a post
+
+```
+"Write an Instagram post about Saturday's wedding at the vineyard in our brand voice, use the
+sunset portrait from my media library, and save it as a draft for Thursday at 9am."
+```
+
+Uses `get_marketing_context`, `list_media`, and `create_post`. The post stays a draft until you approve it.
+
+---
+
+### Approve and schedule
+
+```
+"The Thursday Instagram draft looks good. Schedule it."
+```
+
+Uses `schedule_post`. Enji publishes it at its time. "Hold it as a draft again" uses `unschedule_post`.
+
+---
+
+### Video posts
+
+```
+"Add this video to my library and draft an Instagram reel for Saturday with a caption
+in our voice: https://drive.google.com/file/d/..."
+```
+
+Uses `add_video_from_url`, `get_media_job` to wait for the fetch, then `create_post`.
+
+---
+
+### Long-form content
+
+```
+"Write a 600-word blog post on how to choose a wedding photographer, in our brand voice,
+and save it in Enji as a draft for next Tuesday."
+```
+
+Uses `get_marketing_context` and `create_document`.
+
+---
+
+```
+"Open the newsletter draft, tighten the intro, and mark it scheduled for Friday."
+```
+
+Uses `get_document`, `update_document`, and `set_document_status`.
+
+---
+
+## Refinement
+
+### When results aren't right
+
+```
+"The blog ideas are too generic. My clients are women over 40 dealing with digestive
+issues, and my approach combines evidence-based nutrition with mindfulness.
+Regenerate them with that in mind."
 ```
 
 ---
 
-## Brand Development
+## Pro tips
 
-### Define Your Voice
+**Start with context.** Signed in, ask the AI client to read your marketing context at the start of a session. Everything after that fits your business.
 
-```
-"Analyze this copy from my website and create a brand voice guide for me:
+**Drafts first.** Ask for drafts and review them in the chat or in Enji. Nothing publishes until you say so.
 
-'Hey there! We're not your typical accounting firm. Sure, we'll handle your taxes 
-and bookkeeping, but we actually make it fun (or at least bearable). No jargon, 
-no judgment, just real talk about your numbers. We get that you started a business 
-to do what you love, not to stress about spreadsheets. Let us handle the boring 
-stuff so you can get back to being awesome.'"
-```
+**Be specific without an account.** The public generators only know what you tell them.
 
-Your AI client uses `brand_voice` to analyze tone, style, and voice characteristics.
-
----
-
-## Troubleshooting & Refinement
-
-### When Initial Results Aren't Perfect
-
-**Too Generic:**
-```
-"The blog ideas you generated are too generic. Let me give you more details about my business:
-
-I'm a nutritionist who specializes in gut health and works exclusively with women 
-over 40 dealing with digestive issues. My approach combines evidence-based nutrition 
-with mindfulness practices. Generate blog topics that reflect this specific niche."
-```
-
-**Need More Context:**
-```
-"Great start! Now let's get more specific. My target customers are:
-- Women 40-60 years old
-- Have tried multiple diets without success
-- Frustrated with bloating, IBS, or food sensitivities
-- Looking for sustainable solutions, not quick fixes
-- Value natural, holistic approaches
-
-Regenerate the blog ideas with this in mind."
-```
-
----
-
-## Pro Tips
-
-### Get Better Results
-
-**Be Specific:**
-❌ "Generate blog ideas"
-✅ "Generate blog ideas for my eco-friendly cleaning products business targeting environmentally conscious parents"
-
-**Iterate:**
-Don't settle for the first result. Ask your AI client to refine, adjust tone, or explore different angles.
-
-**Combine Tools:**
-Use multiple tools in one conversation for comprehensive strategies.
+**Iterate.** Ask the AI client to refine, adjust tone, or try a different angle.
 
 ---
 
 **Want more examples?** Check out [Enji's blog](https://www.enji.co/blog) for marketing tips and tutorials.
 
-**Ready to try it yourself?** [Connect your AI client to Enji →](https://www.enji.co/ai-marketing-agent)
+**Ready to try it yourself?** [Connect your AI client to Enji →](https://www.enji.co/mcp)

@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Report a problem with the Enji AI Marketing Agent connector
+about: Report a problem with the Enji MCP server
 title: '[BUG] '
 labels: bug
 assignees: ''

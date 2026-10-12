@@ -1,125 +1,168 @@
-# Enji AI Marketing Agent for ChatGPT, Claude, or other AI Clients
+# Enji MCP Server for ChatGPT, Claude, and other AI clients
 
-Connect ChatGPT, Claude, or other AI Clients to Enji's AI-powered marketing tools to get instant help with your small business marketing questions (from our years of expertise) as well as free tools to create a customer persona, brand voice, and ideas for social content (blog and social media).
+Connect ChatGPT, Claude, or any MCP-capable AI client to Enji, the AI marketing assistant for wedding and creative pros. Two servers are available on the same host:
+
+| Server | URL | Sign-in | What you get |
+|--------|-----|---------|--------------|
+| **Enji Marketing Help** | `https://mcp.enji.co/public` | None | Answers from Enji's marketing knowledge base and the free customer persona, brand voice, social idea, and blog idea generators |
+| **Enji** | `https://mcp.enji.co/mcp` | Enji account (OAuth) | Everything above plus your business: marketing plan, tasks, social posts, long-form content, media, campaigns, and the posting calendar |
+
+Both are hosted services. There is nothing to install; add the URL to your AI client.
 
 ## 🚀 What is This?
 
-This is a **remote MCP (Model Context Protocol) connector** that connects ChatGPT, Claude, or other AI Clients to Enji's [AI Marketing Agent](https://www.enji.co/ai-marketing-agent). It's a hosted service - no installation required. Just add the connector URL to your AI client of choice - no authentication required.
+Enji is the AI marketing assistant for wedding and creative pros: your marketing gets done. These **remote MCP (Model Context Protocol) servers** let an AI client work with Enji directly.
 
-Enji is an all-in-one marketing platform designed for small businesses and solopreneurs. Our AI marketing agent helps you:
-- Get real answers to marketing questions from our knowledge base (blog, marketing questions answered database, help, and FAQs)
-- Build detailed customer personas
-- Define your brand voice
+Without an account, the AI client can:
+- Get real answers to marketing questions from Enji's knowledge base (blog, marketing Q&A library, help center)
+- Build a customer persona
+- Define a brand voice
 - Generate blog and social media content ideas
+
+Signed in to an Enji account, it can also:
+- Read the marketing context Enji keeps for your business (strategy, customers, offers, brand voice) so every idea fits
+- See what is on your marketing calendar today or this week, and create, update, and complete tasks
+- Draft social posts and videos in your brand voice, using media from your Enji library, and plan them on the calendar
+- Write blog posts, newsletters, press releases, and show notes as Enji documents
+- Review drafts, then approve and schedule them. Enji publishes a scheduled post at its time.
+
+Nothing publishes without you: posts are created as drafts, and only a post you approve is scheduled. Every change is recorded in Enji.
 
 ## 🔗 Quick Start
 
 ### Requirements
-- An AI client such as ChatGPT, Claude, or other AI clients (may require a subscription to add a connector)
+- An AI client that supports remote MCP servers over Streamable HTTP (ChatGPT, Claude, and most others). Adding a custom server may need a paid plan; see each client below.
+- For the signed-in server, an Enji account on a trial or paid plan. [Start a free trial](https://www.enji.co).
+
+Enji has been submitted to the Claude and ChatGPT directories. Once listed, you will be able to add it from the directory on any plan without the custom-server steps below; this page will be updated when that happens.
 
 ### How to Connect
 
 **In ChatGPT:**
-1. Open ChatGPT
-2. Go to Settings → Apps & Connectors
-3. Scroll to the bottom and click on Advanced Settings and turn on Developer Mode (if it’s not already enabled)
-4. Click Back and then where it says Enabled Apps and Connectors, click Create App
-5. Add the Name of Enji and for the MCP Server URL add `https://mcp.enji.co/mcp/messages`
-6. Optionally add Enji's logo as the Icon
-7. Set Authentication to No Auth
-8. Check the box that you understand click Create
-9. Let the ChatGPT chat session know you want to use Enji to do your work
+
+Until Enji is listed in the ChatGPT directory, it can only be added as a custom MCP server, and ChatGPT limits that to **Business, Enterprise, and Edu workspaces**. A workspace admin or owner adds it and publishes it to the workspace; members then use it. Free, Plus, and Pro accounts cannot add custom servers. Once Enji is in the directory, every plan will be able to add it from there.
+
+Workspace admin or owner:
+1. In **Workspace Settings → Permissions & Roles → Connected Data**, turn on **Create custom MCP connectors** (on Enterprise and Edu this can also be granted to specific roles)
+2. Go to **[chatgpt.com/plugins](https://chatgpt.com/plugins)**, click **+**, then **Add custom MCP server**
+3. Enter the name Enji and a short description
+4. Under **Connection**, choose **Public endpoint** and enter `https://mcp.enji.co/public` (no sign-in) or `https://mcp.enji.co/mcp` (Enji account)
+5. Set authentication to **No authentication** for the public server, or **OAuth** for the signed-in server (no client ID or secret needed)
+6. Read the warning, choose **I understand and want to continue**, then **Create as a plugin**
+7. Review the tools ChatGPT discovered, test it, then publish it to the workspace
+
+Members:
+1. Find Enji under the workspace's apps and connect it. For the signed-in server, sign in to Enji and choose which businesses to share
+2. In a chat, open the **+** menu and enable Enji, then tell the chat you want to use it for your work
+
+ChatGPT asks you to confirm each writing action and shows exactly what it will send. If Enji's tools change, the admin refreshes the app's tool list in workspace settings.
 
 **In Claude.ai or Claude Desktop:**
-1. Go to **Settings** > **Connectors**
-2. Click **"Add custom connector"**
-3. Enter the MCP server URL: `https://mcp.enji.co/mcp/messages`
-4. Click **"Add"**
-5. Authenticate with your Enji account when prompted
-6. Let the Claude chat session know you want to use Enji to do your work
 
-**Other AI Clients:**
-1. Open your AI client settings or connectors (might need to search for their instruction on where to add MCP connectors)
-2. Connect to Enji using the server URL: `https://mcp.enji.co/mcp/message` or if it wants the manifest endpoint, connect to this url: `https://mcp.enji.co/mcp/manifest`
-3. If the client asks for Authentication type, choose None
-4. Let the AI client chat session know you want to use Enji to do your work
+Custom connectors are available on every Claude plan (Free accounts get one). On a Team or Enterprise plan an owner adds the connector under Organization settings → Connectors first, and members then connect to it.
 
-That's it! Your AI client of choice can now access Enji's marketing tools.
+1. Go to **Customize → Connectors**
+2. Click **+ Add**, then **Add custom connector**
+3. Enter the name Enji and the URL: `https://mcp.enji.co/public` (no sign-in) or `https://mcp.enji.co/mcp` (your Enji account), then **Continue**
+4. Accept the detected authentication settings (none for the public server; sign in for the signed-in server, no client ID or secret needed) and click **Add**
+5. For the signed-in server, click **Connect**, sign in to Enji, and choose which businesses to share
+6. In a chat, open the **+** menu, choose **Connectors**, and turn Enji on, then tell the chat you want to use it for your work
 
-**Learn more:** [Full setup guide on Enji.co](https://www.enji.co/ai-marketing-agent#setup-instructions)
+**Other AI clients:**
+1. Open the client's MCP or connector settings
+2. Add the server URL above. Transport is **Streamable HTTP**; the SSE and manifest endpoints of the old server have been retired
+3. The public server needs no authentication. The signed-in server uses standard OAuth 2.0 with discovery at `https://mcp.enji.co/.well-known/oauth-protected-resource/mcp`, PKCE, and client ID metadata documents; no client registration is needed
+4. Tell the chat you want to use Enji for your work
+
+**Learn more:** [Setup guide on Enji.co](https://www.enji.co/mcp)
 
 ## 🛠️ Available Tools
 
-Once connected, your AI Client can help you with:
+### Without sign-in (both servers)
 
 | Tool | Description |
 |------|-------------|
-| **answer_question** | Get expert answers to marketing questions from Enji's knowledge base |
-| **search_public** | Search Enji's blog, Q&A library, and help center |
-| **blog_ideas** | Generate fresh blog topic ideas tailored to your business |
-| **social_media_ideas** | Create engaging social media post ideas |
-| **customer_persona** | Build detailed customer personas for targeting |
-| **brand_voice** | Analyze your writing to define your unique brand voice |
-| **search** | Search Enji's blog, Q&A library, and help center (ChatGPT spec) |
-| **fetch** | Fetch a document by id (ChatGPT spec) |
-| **list_resources** | Discover Enji's free marketing tools and resources |
+| **search_enji_knowledge** | Search Enji's help center, blog, and marketing Q&A library for passages that answer a marketing question or explain how to do something in Enji |
+| **list_enji_resources** | Enji's public resources and free tools, with their URLs |
+| **customer_persona** | Build a structured customer persona from a business description |
+| **brand_voice** | Analyze a sample of copy to define a brand voice |
+| **social_media_ideas** | Generate social media post ideas for a business |
+| **blog_ideas** | Generate blog topic ideas for a business |
+
+### Signed in (`/mcp`)
+
+| Area | Tools |
+|------|-------|
+| **Business** | list_orgs, list_members, get_marketing_context |
+| **Tasks** | get_todays_tasks, list_tasks, get_task, create_task, create_task_occurrence, update_task, complete_task, reopen_task, delete_task |
+| **Social posts** | list_social_accounts, list_posts, get_post, plan_post, create_post, update_post, fit_media_to_platform, schedule_post, unschedule_post, delete_post |
+| **Long-form content** | list_documents, get_document, plan_document, create_document, update_document, set_document_status, delete_document |
+| **Media** | list_media, add_media_from_url, add_video_from_url, get_media_job |
+| **Campaigns** | list_campaigns |
+
+Every tool is annotated as read-only or writing, and every write confirms what it changed. Delete tools soft-delete, and the record stays recoverable in the Enji app. Uploads from your device go through the Enji app; the AI client can use media already in your library or at a public link.
 
 ## 💡 Example Use Cases
 
-### Marketing Strategy Help
+### Marketing questions (no sign-in)
 ```
 You: "How should I build a social media marketing plan?"
 
-The AI client uses Enji's answer_question tool to provide expert guidance based on wedding industry best practices.
+The AI client uses search_enji_knowledge to answer from Enji's marketing library and links the full article.
 ```
 
-### Content Planning
+### Content ideas (no sign-in)
 ```
-You: "I am a coffee shop owner. Can you help me generate 10 blog ideas for me?"
-AI Client: asks qualifying questions about your business.
+You: "I'm a wedding florist. Give me 10 blog ideas."
+AI client: asks a few questions about your business.
 
-Enji uses blog_ideas to create topic suggestions like:
-- The Art of Latte Art: A Beginner's Guide
-- Behind the Beans: How We Source Our Coffee
-- 5 Coffee Myths Debunked by Our Baristas
-```
-
-### Customer Research
-```
-You: "Help me create a customer persona for my yoga studio."
-AI Client: asks qualifying questions about your business and customers.
-
-Enji uses customer_persona to build a detailed profile including demographics, struggles, and solutions.
+Enji's blog_ideas tool returns topics like:
+- How to Choose Wedding Flowers That Match Your Venue
+- Behind the Buckets: A Wedding Week in Our Studio
+- 5 Myths About Seasonal Flowers Your Florist Wants to Debunk
 ```
 
-See more examples in our [examples directory](./examples/).
+### Your week (signed in)
+```
+You: "What marketing tasks do I have this week, and what should I post?"
+
+The AI client reads your calendar with list_tasks, your plan with get_marketing_context,
+and suggests posts that fit your goals and brand voice.
+```
+
+### Draft and schedule a post (signed in)
+```
+You: "Write an Instagram post about Saturday's wedding at the vineyard in our brand voice and put it on the calendar for Thursday at 9am."
+
+The AI client drafts the post with create_post. Nothing goes out until you approve it with schedule_post.
+```
+
+See more in the [examples directory](./examples/).
 
 ## 📚 Documentation
 
-* **[Enji AI Marketing Agent Documentation](https://www.enji.co/ai-marketing-agent)** - Complete guide on Enji website
-* **[Tool Reference](https://github.com/enjiapp/ai-marketing-agent/blob/main/docs/tools.md)** - Detailed docs
-* **[Examples](https://github.com/enjiapp/ai-marketing-agent/blob/main/examples/prompts.md)** - Sample prompts
-* **[FAQ](https://github.com/enjiapp/ai-marketing-agent/blob/main/docs/faqs.md)** - Common questions and troubleshooting
+* **[Enji MCP setup guide](https://www.enji.co/mcp)** on the Enji website
+* **[Tool Reference](./docs/tools.md)**
+* **[Examples](./examples/prompts.md)**
+* **[FAQ](./docs/faqs.md)**
 
 ## 🎯 Who Should Use This?
 
-This connector is perfect for:
-- **Small business owners** looking for marketing guidance
-- **Solopreneurs** who need to create ideas for content quickly
-- **Freelancers** managing multiple clients' marketing
-- **Startup founders** building their marketing strategy and have questions
-- **Coaches and consultants** growing their audience
+- **Wedding and creative professionals** (photographers, planners, venues, florists, designers, calligraphers, stationers), the largest group of businesses on Enji, with marketing guidance written for their industry
+- **Other solopreneurs and small business owners** who want their AI assistant to know their business
+- **Freelancers and agencies** managing several clients' marketing (each business is shared separately)
+- **Coaches and consultants** growing an audience
 
 ## 🔒 Security & Privacy
 
-- Enji only accesses data you explicitly provide
-- All API calls are made server-to-server over HTTPS
+- The public server stores nothing about you. Requests are rate limited per IP.
+- The signed-in server uses OAuth 2.0 with PKCE. You choose which businesses an AI client may access at sign-in, and you can review or revoke the connection any time in Enji under **Settings → Connected Apps**.
+- Tools return data from your own businesses only, and your Enji permissions apply to every action.
+- All traffic is HTTPS.
 - **Privacy Policy:** [enji.co/privacy-policy](https://www.enji.co/privacy-policy)
 - **Terms of Service:** [enji.co/terms-of-service](https://www.enji.co/terms-of-service)
 
 ## 🆘 Support
-
-Having issues? Need help?
 
 - **Help Center:** [help.enji.co](https://help.enji.co)
 - **Report Issues:** [Open a GitHub issue](https://github.com/enjiapp/ai-marketing-agent/issues)
@@ -127,28 +170,26 @@ Having issues? Need help?
 
 ## 🔧 Technical Details
 
-The Enji Marketing Agent MCP server supports multiple transport protocols:
+- **Transport:** MCP Streamable HTTP (POST JSON-RPC, SSE responses when the client asks for them). Stateless; one universal URL for every business.
+- **Public server:** `https://mcp.enji.co/public`, no authentication
+- **Signed-in server:** `https://mcp.enji.co/mcp`, Bearer tokens from Enji's OAuth 2.0 authorization server. Discovery: `https://mcp.enji.co/.well-known/oauth-protected-resource/mcp`. Authorization code flow with PKCE (S256), RFC 8707 resource indicators, and client ID metadata documents instead of dynamic registration.
+- **Scopes:** user.read, tasks.read, tasks.write, content.read, content.write, offline_access
+- **Health:** `https://mcp.enji.co/health`
 
-- **SSE (Server-Sent Events)** - Send GET request with `Accept: text/event-stream`
-- **JSON-RPC over HTTP POST** - For clients that prefer request/response
-- **Endpoints:** `https://mcp.enji.co/mcp/messages` or `https://mcp.enji.co/mcp/sse`
-
-The server automatically detects which protocol to use based on the request headers.
+The earlier endpoints `https://mcp.enji.co/mcp/messages`, `/mcp/sse`, and `/mcp/manifest` have been retired. Update any saved connector to one of the URLs above.
 
 ## 🌟 About Enji
 
-Enji is a small business marketing platform that creates marketing strategies, manages your marketing plan, and provides AI-powered tools for content creation and scheduling. We help businesses under $1M in revenue market themselves effectively without needing a marketing degree.
+Enji is the AI marketing assistant for wedding and creative pros: your marketing gets done. It builds your marketing strategy, keeps your plan and calendar, writes content in your brand voice from your own photos, schedules your social media, and tracks what is working. Photographers, planners, venues, florists, and designers make up most of Enji's customers, and other solopreneurs and small businesses use it too.
 
 **[Learn more about Enji →](https://www.enji.co)**
 
 ## 📝 License
 
-This repository contains documentation for connecting to Enji's hosted MCP server. The server itself is a proprietary service provided by Enji.
+This repository contains documentation for connecting to Enji's hosted MCP servers. The servers themselves are a proprietary service provided by Enji.
 
-Documentation in this repository is licensed under [MIT License](./LICENSE).
+Documentation in this repository is licensed under the [MIT License](./LICENSE).
 
 ---
 
 **Not an Enji customer yet?** [Start your free trial →](https://www.enji.co)
-
-**Questions about this connector?** [Read the full guide on our website →](https://www.enji.co/ai-marketing-agent)

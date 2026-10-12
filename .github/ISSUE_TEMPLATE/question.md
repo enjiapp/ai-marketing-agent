@@ -1,6 +1,6 @@
 ---
 name: Question
-about: Ask a question about using the Enji AI Marketing Agent connector
+about: Ask a question about using the Enji MCP server
 title: '[QUESTION] '
 labels: question
 assignees: ''
@@ -14,7 +14,7 @@ Have you:
 - [ ] Read the [README](../README.md)
 - [ ] Checked the [FAQ](../docs/faq.md)
 - [ ] Looked at [example prompts](../examples/prompts.md)
-- [ ] Visited [enji.co/ai-marketing-agent](https://www.enji.co/ai-marketing-agent)
+- [ ] Visited [enji.co/mcp](https://www.enji.co/mcp)
 
 ## Context
 What are you trying to accomplish?

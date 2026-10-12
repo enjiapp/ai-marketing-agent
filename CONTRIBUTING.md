@@ -1,6 +1,6 @@
-# Contributing to Enji MCP Connector Documentation
+# Contributing to Enji MCP Server Documentation
 
-Thanks for your interest in improving the Enji MCP connector documentation! 
+Thanks for your interest in improving the Enji MCP server documentation! 
 
 ## What You Can Contribute
 

@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Suggest a new tool or capability for the Enji AI Marketing Agent connector
+about: Suggest a new tool or capability for the Enji MCP server
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''
